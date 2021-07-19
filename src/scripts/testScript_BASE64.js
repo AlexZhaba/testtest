@@ -1,0 +1,1 @@
+export const testScriptBase64 = `ZG9jdW1lbnQuYm9keS5zdHlsZS5iYWNrZ3JvdW5kQ29sb3IgPSAncmVkJzsKc2V0VGltZW91dChmdW5jdGlvbigpIHsgd2luZG93LmFsZXJ0KCdoaScpIH0sIDIwMDApOw==`;
