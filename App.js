@@ -1,13 +1,10 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React, { useState, useRef } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import SearchBar from './src/SearchBar';
-import { encode, decode } from 'js-base64';
+import { decode } from 'js-base64';
 import { userScriptBase64 } from './src/scripts/userScript_BASE64';
 import { testScriptBase64 } from './src/scripts/testScript_BASE64';
-const WebViewComponent = React.memo(WebView)
-
-
 
 const App = () => {
 
@@ -21,7 +18,7 @@ const App = () => {
     setSearchURL(url);
     setActiveURL(url);
     if (url.includes('youtube.com')) {
-      console.log('SCRIPT WAS INJECTED')
+      console.log('SCRIPT WAS INJECTED');
       webRef.current.injectJavaScript(decode(testScriptBase64));
     }
   };
@@ -29,7 +26,7 @@ const App = () => {
   return (
     <View style={styles.container}>
       <SearchBar setActiveURL={setActiveURL} searchURL={searchURL} setSearchURL={setSearchURL}/>
-      <WebViewComponent
+      <WebView
         source={{uri: activeURL}}
         ref={webRef}
         onNavigationStateChange={handleWebViewNavigationStateChange}

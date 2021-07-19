@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
-import { Text, StyleSheet, View, TextInput, Button } from 'react-native';
+import React from 'react';
+import { StyleSheet, View, TextInput, Button } from 'react-native';
+import { Keyboard } from 'react-native'
 
 const SearchBar = ({ setActiveURL, searchURL, setSearchURL }) => (
   <View style={styles.container}>
     <View style={styles.button}>
-      <Button title='Перейти' onPress={() => setActiveURL(searchURL)}/>
+      <Button title='Перейти' onPress={() => {
+          setActiveURL(searchURL);
+          Keyboard.dismiss();
+        }}/>
     </View>
     <TextInput style={styles.input} onChangeText={text => setSearchURL(text)} value={searchURL}/>
   </View>
